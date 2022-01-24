@@ -11,11 +11,13 @@ The project was written to support undergraduate laboratories, so really this re
 to run their spectrometer.  However, the functionality of the project can readily be expanded to take advantage of the 
 spectrometer features.  This code takes care of collecting the spectra, everything else is just manipulations in code.  Simple changes in the code shift the interface from having lots of things chosen for you to needing to make lots of choices.
 ## PiSpec20 Requirements  
+
 Python 2.7.x is required for this version.  I wrote this on a Raspberry Pi 3b+.  For Windows or Mac you will need to make small changes to the code to deal with OS peculiarities.  You will need to possess a Stellarnet spectrometer.
 ### Libraries 
 For Raspbian OS, the `apt-get` package manager is preferred to `pip` in most cases.  For other Linux types, the appropriate package manager (*e.g.*, yum for CentOS) will depend on your Linux distribution.   
 For Windows and MacOS, one would typically use `pip` to install Python libraries.  Help with pip is available at https://packaging.python.org/tutorials/installing-packages/  
 - pyusb 1.0.0a3  (Linux python 2 example:  `sudo pip install pyusb==1.0.0a3`)  this is version specific  
+
 - screen (if you want to hide the background processes)
 - numpy  
 - python-matplotlib, recommended version: `sudo pip --no-cache-dir install matplotlit==2.0.2`    
@@ -35,6 +37,18 @@ you would need to run as root to get USB access.
 ### Other Hardware  
 - a USB connected StellarNet spectrometer  
 - a light source if you are going to do absorbance experiments
+
+=======
+## Typical Install  
+The following steps were followed to install this project on a Raspberry PI model 3B+ with a fresh Raspbian (full version) installation:  
+- `sudo apt-get install screen`  
+- `sudo pip3 install pyusb==1.0.0a3`  
+- downloaded this repository  
+- from the project directory copied the 'rules' file `sudo cp 99-local.rules /etc/udev/rules.d`  
+- change permission `sudo chmod -x spectroweb.py`  
+- `python3 spectroweb.py`  will keep this command line window busy, so open another one  
+- `python3 stellarnet_spec.py` runs the interface  
+
 ## Supported Devices  
 ### Directly tested 
 | Manufacturer  | Spectrometer  | Works ?       |  
