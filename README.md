@@ -1,3 +1,5 @@
+# This branch is an archive of a version written in early 2020 and works on Python 2.x and pre-Python 3.9.  
+This branch archives earlier work.  Changes to Pyusb and Flask make this version fail on new Python installations.  This archive keeps the record of the original work.  
 # PiSpec20_stellarnet
 A Python interface for StellarNet spectrometers designed to provide the functions of a Spectronic 20 spectrophotometer  
 **!! The file `stellarnet.py` was removed at the request of StellarNet.  To get this file you will need to complete a Software License Agreement with them (https://www.stellarnet.us/wp-content/uploads/StellarNet-SLA.pdf).  I am working on getting an acceptable version posted here that will allow you work with this project and not violate the license.**  
