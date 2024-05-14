@@ -13,7 +13,7 @@ spectrometer features.  This code takes care of collecting the spectra, everythi
 The *master branch* works on newer (as of May 2024) Python 3.x versions.  Separate branches for Python 2.7 and older 3.x versions are available.  I wrote this on a Raspberry Pi 3b+.  The *master branch* was tested on Python 3.9 and 3.11 with Raspbian OS *Bullseye* and *Bookworm*.  The *Bookworm* distribution is slow on a 3b+, and not entirely recommended.  
 For Windows or Mac you will need to make small changes to the code to deal with OS peculiarities.  You will need to possess a Stellarnet spectrometer.
 ### Libraries 
-For Raspbian OS, the `apt-get` package manager is preferred to `pip` in most cases.  For other Linux types, the appropriate package manager (*e.g.*, yum for CentOS) will depend on your Linux distribution.   
+For Raspbian OS, the `apt-get` package manager was used for sytem packages.  For other Linux types, the appropriate package manager (*e.g.*, yum for CentOS) will depend on your Linux distribution.   The `pip` or `pip3` (depending on your Python set-up) get the Python packages.  Note that on Raspbian starting with the 'Bookwork' distribution, `pip` installs must be to a virtual environment to obey the stricter versioning rules.  
 For Windows and MacOS, one would typically use `pip` to install Python libraries.  Help with pip is available at https://packaging.python.org/tutorials/installing-packages/  
 - pyusb 1.2.1  (Linux python 3 example:  `sudo pip3 install pyusb==1.2.1`)  this is version specific, so `pip` is appropriate especially for *venv*
 - libusb-1.0-0-dev
@@ -21,9 +21,6 @@ For Windows and MacOS, one would typically use `pip` to install Python libraries
 - matplotlib
 - screen (if you want to hide the background processes)  
 - libraries usually automatically included in Python
-  - json  
-  - python-requests  
-  - python-flask  
   - python-virtualenv  (if you want to run this in a virtual environment)
   - Tkinter  
 ### Files to install
@@ -37,7 +34,9 @@ For Windows and MacOS, one would typically use `pip` to install Python libraries
 ## Typical Install  
 The following steps were followed to install this project on a Raspberry PI model 3B+ with a fresh Raspbian (full version) installation:  
 - `sudo apt-get install screen`  
-- `sudo install pyusb==1.2.1`  
+- `sudo apt-get install pyusb==1.2.1`
+- `sudo pip install numpy==1.24.1`
+- `sudo pip matplotlib`
 - downloaded this repository  
 - `python3 stellarnet_spec.py` runs the interface  
 ## Supported Devices  
