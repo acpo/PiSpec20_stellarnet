@@ -15,10 +15,11 @@ For Windows or Mac you will need to make small changes to the code to deal with 
 ### Libraries 
 For Raspbian OS, the `apt-get` package manager was used for sytem packages.  For other Linux types, the appropriate package manager (*e.g.*, yum for CentOS) will depend on your Linux distribution.   The `pip` or `pip3` (depending on your Python set-up) get the Python packages.  Note that on Raspbian starting with the 'Bookwork' distribution, `pip` installs must be to a virtual environment to obey the stricter versioning rules.  
 For Windows and MacOS, one would typically use `pip` to install Python libraries.  Help with pip is available at https://packaging.python.org/tutorials/installing-packages/  
-- pyusb 1.2.1  (Linux python 3 example:  `sudo pip3 install pyusb==1.2.1`)  this is version specific, so `pip` is appropriate especially for *venv*
+- pyusb 1.2.1  (Linux python 3 example:  `pip3 install pyusb==1.2.1`)  this is version specific, so `pip` is appropriate especially for *venv*
 - libusb-1.0-0-dev
 - numpy 1.24.2 
 - matplotlib
+- (*May 2024*) may need to also get `sudo apt-get install python3-pil.imagetk` to address an import error from matplotlib  
 - screen (if you want to hide the background processes)  
 - libraries usually automatically included in Python
   - python-virtualenv  (if you want to run this in a virtual environment)
