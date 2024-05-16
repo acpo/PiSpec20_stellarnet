@@ -24,7 +24,8 @@ For Windows and MacOS, one would typically use `pip` to install Python libraries
 - libraries usually automatically included in Python
   - python-virtualenv  (if you want to run this in a virtual environment)
   - Tkinter  
-### Files to install
+### Files to install  
+- `99-local.rules` needs to be copied to '/etc/udev/rules.d/' or updated to include rules for StellarNet devices. Otherwise you would need to run as root to get USB access.
 - Stellarnet has dramatically simplified the installation process since 2019, so there is a lot less for the user to manage.  
 - the rest of the files in PiSpec20_stellarnet should go into the same directory
 - on a Windows system you will need the free 'SWDrivers.zip' or 'SWDriver64.exe' from https://www.stellarnet.us/stellarnet-downloads  instead of the driver included in this package  
