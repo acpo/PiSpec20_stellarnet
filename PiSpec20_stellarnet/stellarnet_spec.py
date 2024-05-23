@@ -167,7 +167,8 @@ class App(tk.Frame):
         
         #lower status bar
         self.status_frame = tk.Frame(self)
-        self.status = tk.Label(self.status_frame, text = spectrometer)
+        spec_config = spectrometer['device'].get_config()
+        self.status = tk.Label(self.status_frame, text = "Model:  " + spec_config['model'])
         self.status.pack(fill="both", expand=False)
 
         #set locations of the major areas to the corners of the box
