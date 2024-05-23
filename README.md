@@ -8,28 +8,41 @@ to make an effectively disposable computer.  I picked Python 3.x (the older bran
 ## Project Audience  
 The project was written to support undergraduate laboratories, so really this repository is for people looking for a frontend 
 to run their spectrometer.  However, the functionality of the project can readily be expanded to take advantage of the 
-spectrometer features.  This code takes care of collecting the spectra, everything else is just manipulations in code.  Simple changes in the code shift the interface from having lots of things chosen for you to needing to make lots of choices.
+spectrometer features.  This code takes care of collecting the spectra, everything else is just manipulations in code.  Simple changes in the code shift the interface from having lots of things chosen for you to needing to make lots of choices.  For example, there is a 'Save Button' commented out in the code.  If you uncomment the 3 lines of the GUI for the button, the Save function is fully implemented.  
 ## PiSpec20 Requirements  
 The *master branch* works on newer (as of May 2024) Python 3.x versions.  Separate branches for Python 2.7 and older 3.x versions are available.  I wrote this on a Raspberry Pi 3b+.  The *master branch* was tested on Python 3.9 and 3.11 with Raspbian OS *Bullseye* and *Bookworm*.  The *Bookworm* distribution is slow on a 3b+, and not entirely recommended.  
 For Windows or Mac you will need to make small changes to the code to deal with OS peculiarities.  You will need to possess a Stellarnet spectrometer.
 ### Libraries 
 For Raspbian OS, the `apt-get` package manager was used for sytem packages.  For other Linux types, the appropriate package manager (*e.g.*, yum for CentOS) will depend on your Linux distribution.   The `pip` or `pip3` (depending on your Python set-up) get the Python packages.  Note that on Raspbian starting with the 'Bookwork' distribution, `pip` installs must be to a virtual environment to obey the stricter versioning rules.  
 For Windows and MacOS, one would typically use `pip` to install Python libraries.  Help with pip is available at https://packaging.python.org/tutorials/installing-packages/  
-- pyusb 1.2.1  (Linux python 3 example:  `pip3 install pyusb==1.2.1`)  this is version specific, so consider using *venv*
-- libusb-1.0-0-dev
-- numpy 1.24.2 
-- matplotlib
+- libusb-1.0-0-dev  (with apt-get)
+- pyusb 1.2.1  (Linux example:  pip3 install pyusb==1.2.1)  this is version specific, so consider using *venv*
+- numpy 1.24.2  
+- matplotlib  
 - (*May 2024*) may need to also get `sudo apt-get install python3-pil.imagetk` to address an import error from matplotlib  
-- screen (if you want to hide the background processes)  
+- screen (if you want to hide the background processes)
 - libraries usually automatically included in Python
   - python-virtualenv  (if you want to run this in a virtual environment)
   - Tkinter  
 ### Files to install  
-- `99-local.rules` needs to be copied to '/etc/udev/rules.d/' or updated to include rules for StellarNet devices. Otherwise you would need to run as root to get USB access.
-- Stellarnet has dramatically simplified the installation process since 2019, so there is a lot less for the user to manage.  
-- the rest of the files in PiSpec20_stellarnet should go into the same directory
-- on a Windows system you will need the free 'SWDrivers.zip' or 'SWDriver64.exe' from https://www.stellarnet.us/stellarnet-downloads  instead of the driver included in this package  
-- use the 'run_hidden' bash script to start the project without showing the command line.  From the command line issue `sudo chmod +x run_hidden` to make the bash script executable.  On Windows a batch file would substitute the bash script.
+- `99-local.rules` needs to be copied to '/etc/udev/rules.d/' or update the existing .rules file to include rules for StellarNet devices. Otherwise you would need to run as root to get USB access.  
+- Stellarnet has dramatically simplified the installation process since 2019, so there is a lot less for the user to manage.
+- the rest of the files in PiSpec20_stellarnet should go into the same directory.  The drivers from StellarNet should be placed in a folder within this directory.
+- on a Windows system, there is an extra step in the driver installation.  See the documentation from StellarNet.
+
+### Example install process on a Raspberry Pi 3B+    
+1) fresh install of Raspbian Bullseye  
+2) `sudo apt-get install libusb-1.0-0-dev`  
+3) `pip3 install pyusb==1.2.1`  
+4) `pip3 install numpy==1.24.2`
+5) `pip3 install matplotlib`  
+6) `sudo apt-get install python3-pil.imagetk`  
+7) copy this repository
+8) `sudo cp 99-local.rules /etc/udev/rules.d/99-local.rules
+9) copy StellarNet drivers to the PiSpec20_LED_stellarnet folder
+10) `sudo chmod +x run_hidden` to make the bash script executable.  A batch file would substitute the bash script on Windows.  
+11) reboot
+
 ### Other Hardware  
 - a USB connected StellarNet spectrometer  
 - a light source if you are going to do absorbance experiments
