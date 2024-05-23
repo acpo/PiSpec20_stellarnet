@@ -38,7 +38,7 @@ For Windows and MacOS, one would typically use `pip` to install Python libraries
 5) `pip3 install matplotlib`  
 6) `sudo apt-get install python3-pil.imagetk`  
 7) copy this repository
-8) `sudo cp 99-local.rules /etc/udev/rules.d/99-local.rules
+8) `sudo cp 99-local.rules /etc/udev/rules.d/99-local.rules`  
 9) copy StellarNet drivers to the PiSpec20_LED_stellarnet folder
 10) `sudo chmod +x run_hidden` to make the bash script executable.  A batch file would substitute the bash script on Windows.  
 11) reboot
