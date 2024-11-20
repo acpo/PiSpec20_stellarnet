@@ -1,0 +1,4 @@
+matplotlib
+pyusb 1.2.1
+libusb-1.0-0-dev
+numpy 1.24.2
