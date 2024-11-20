@@ -1,0 +1,8 @@
+json
+numpy
+python-flask
+python-matplotlib
+python-requests
+python-virtualenv
+pyusb 1.0.0a3
+Tkinter
